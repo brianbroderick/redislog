@@ -966,10 +966,10 @@ append_json_literal(StringInfo buf, const char *key, const char *value, bool is_
 	 * no need to reinvent the wheel.
 	 */
 	if (value==NULL) {
- 		appendStringInfo(&literal_json, "null");
- 	} else {
- 		escape_json(&literal_json, value);
- 	}
+		appendStringInfo(&literal_json, "null");
+	} else {
+		escape_json(&literal_json, value);
+	}
 
 	/* Now append the field */
 	appendStringInfo(buf, "\"%s\":%s", key, literal_json.data);
